@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <title>Piškvorky</title>
+    <style>
+    td a, td span {
+        display: block;
+        width: 32px;
+        height: 32px;
+        background-color: #eee;
+        text-align: center;
+        font-size: 28px;
+    }
+    td a:hover {
+        background-color: #eef;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Piškvorky</h1>
+    <table>
+    {% for radek in plocha %}
+    {% set x = loop.index - 1 %}
+    <tr>
+     {% for bunka in radek %}
+     {% set y = loop.index - 1 %}
+      {% if bunka == ' ' %}
+       <td><a href="/tah?x={{x}}&amp;y={{y}}">{{bunka}}</a></td>
+      {% else %}
+       <td><span>{{bunka}}</span></td>
+      {% endif %}
+     {% endfor %}
+    </tr>
+    {% endfor %}
+    </table>
+  </body>
+</html>
